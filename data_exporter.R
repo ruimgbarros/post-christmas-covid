@@ -72,6 +72,7 @@ df <- list(
 df <- toJSON(df, pretty = TRUE, auto_unbox = TRUE)
 
 write(df, 'data.json')
+cat('✅✅✅ Script Ran!' )
 
 
 
