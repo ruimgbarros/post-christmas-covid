@@ -1,5 +1,5 @@
 name: auto-update-data
-on: 
+on:
   push:
     branches: [ master ]
   pull_request:
@@ -23,14 +23,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("tidyverse", "jsonlite"))
+          install.packages(c("tidyverse", "jsonlite","lubridate","glue"))
         shell: Rscript {0}
 
       - name: Updating data and cleaning
         run: |
           source('data_exporter.R')
         shell: Rscript {0}
-        
+
       - name: Commit Changes
         run: |
           git commit data.json -m 'Re-build data.json' || echo "No changes to commit"
