@@ -1,12 +1,7 @@
 name: auto-update-data
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: 
   schedule:
-    - cron: '0 10 * * *'
+  - cron: '*/1 * * * *'
 
 jobs:
   SetUpR:
