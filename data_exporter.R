@@ -1,5 +1,8 @@
 library(tidyverse)
 library(jsonlite)
+library(lubridate)
+library(glue)
+
 
 data <- read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv') %>%
   filter(location == "Portugal" | location == "Spain" | location == "United Kingdom" | location == "Belgium" | location == "Germany" | location == "France" ) %>%
@@ -34,7 +37,11 @@ dates <- data %>% filter(location == "Portugal") %>% select(date) %>% pull()
 
 dates <- c(dates, fake_dates)
 
+update <- Sys.Date()
+update <- glue('Atualizado a {day(update)} de {month(update, label = TRUE, abbr = FALSE, locale="pt_PT")} de {year(update)}')
+
 df <- list(
+  update = update,
   days =  dates,
   max = data %>% select(new_cases_per_million) %>% max(),
   portugal = list(
