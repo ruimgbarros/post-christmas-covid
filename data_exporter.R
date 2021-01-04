@@ -38,7 +38,7 @@ dates <- data %>% filter(location == "Portugal") %>% select(date) %>% pull()
 dates <- c(dates, fake_dates)
 
 update <- Sys.Date()
-updated <- glue('Atualizado a {day(update)} de {month(update, label = TRUE, abbr = FALSE, locale="pt_PT")} de {year(update)}')
+updated <- glue('Actualizado a {day(update)} de {month(update, label = TRUE, abbr = FALSE, locale="pt_PT")} de {year(update)}')
 
 dateTime <- glue('{weekdays(update,abbreviate = T)}, {day(update)} {month(update,label = TRUE, abbr = TRUE)} {year(update)} {format(Sys.time(), "%X")} GMT')
 
