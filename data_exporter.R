@@ -30,12 +30,12 @@ convertScatter <- function(country) {
 
 }
 
-start_date <- data %>% filter(location == "Portugal") %>% select(date) %>% pull() %>% max()
-fake_dates <- seq.Date(start_date, as.Date('2021-01-04'), by = 1)
+# start_date <- data %>% filter(location == "Portugal") %>% select(date) %>% pull() %>% max()
+# fake_dates <- seq.Date(start_date, as.Date('2021-01-04'), by = 1)
 
 dates <- data %>% filter(location == "Portugal") %>% select(date) %>% pull()
 
-dates <- c(dates, fake_dates)
+# dates <- c(dates, fake_dates)
 
 update <- Sys.Date()
 updated <- glue('Actualizado a {day(update)} de {month(update, label = TRUE, abbr = FALSE, locale="pt_PT")} de {year(update)}')
